@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "wordpress": {
+      "type": "http",
+      "url": "https://chris-kidd.com/wp-json/revupnow-mcp/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer ${REVI_API_KEY}"
+      }
+    }
+  }
+}
