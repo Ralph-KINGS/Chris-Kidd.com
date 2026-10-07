@@ -726,7 +726,7 @@
         },
         "image_size": "full",
         "object-fit_mobile": "cover",
-        "object-position_mobile": "center center",
+        "object-position_mobile": "center right",
         "width": {
          "size": 100,
          "unit": "%"
@@ -749,8 +749,8 @@
         },
         "object-fit": "cover",
         "object-fit_tablet": "cover",
-        "object-position": "center center",
-        "object-position_tablet": "center center"
+        "object-position": "center right",
+        "object-position_tablet": "center right"
        },
        "elements": [],
        "widgetType": "image",
