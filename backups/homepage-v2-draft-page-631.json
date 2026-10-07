@@ -707,7 +707,7 @@
        "settings": {
         "align": "center",
         "height_mobile": {
-         "size": 300,
+         "size": 340,
          "unit": "px"
         },
         "image": {
@@ -726,7 +726,7 @@
         },
         "image_size": "full",
         "object-fit_mobile": "cover",
-        "object-position_mobile": "top center",
+        "object-position_mobile": "center center",
         "width": {
          "size": 100,
          "unit": "%"
@@ -738,7 +738,19 @@
         "width_tablet": {
          "size": 100,
          "unit": "%"
-        }
+        },
+        "height": {
+         "size": 560,
+         "unit": "px"
+        },
+        "height_tablet": {
+         "size": 460,
+         "unit": "px"
+        },
+        "object-fit": "cover",
+        "object-fit_tablet": "cover",
+        "object-position": "center center",
+        "object-position_tablet": "center center"
        },
        "elements": [],
        "widgetType": "image",
@@ -3000,7 +3012,7 @@
         "object-fit": "cover",
         "object-fit_mobile": "cover",
         "object-fit_tablet": "cover",
-        "object-position": "center center",
+        "object-position": "",
         "width": {
          "size": 100,
          "unit": "%"
@@ -3012,7 +3024,8 @@
         "width_tablet": {
          "size": 100,
          "unit": "%"
-        }
+        },
+        "custom_css": "selector img{object-position:78% center !important}"
        },
        "elements": [],
        "widgetType": "image",
@@ -3086,7 +3099,8 @@
       "width_tablet": {
        "size": 50,
        "unit": "%"
-      }
+      },
+      "custom_css": "selector{min-width:0}"
      },
      "elements": [
       {
@@ -3388,9 +3402,10 @@
            "unit": "px"
           },
           "width": {
-           "size": "auto",
-           "unit": "custom"
-          }
+           "size": 100,
+           "unit": "%"
+          },
+          "custom_css": "selector{min-width:0;flex:1 1 0%}"
          },
          "elements": [
           {
@@ -3626,9 +3641,10 @@
            "unit": "px"
           },
           "width": {
-           "size": "auto",
-           "unit": "custom"
-          }
+           "size": 100,
+           "unit": "%"
+          },
+          "custom_css": "selector{min-width:0;flex:1 1 0%}"
          },
          "elements": [
           {
@@ -3864,9 +3880,10 @@
            "unit": "px"
           },
           "width": {
-           "size": "auto",
-           "unit": "custom"
-          }
+           "size": 100,
+           "unit": "%"
+          },
+          "custom_css": "selector{min-width:0;flex:1 1 0%}"
          },
          "elements": [
           {
