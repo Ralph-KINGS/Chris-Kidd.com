@@ -3,59 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/vendor/gsap.min.js"></script>
     <style>
-      /* Placeholders: replace all three with the film's own palette and display face. */
-      :root {
-        --ground: #6b6b6b;
-        --ink: #ffffff;
-        --font-display: sans-serif;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1080px;
-        height: 1920px;
-        overflow: hidden;
-        background: var(--ground);
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
-      }
-      #title {
-        color: var(--ink);
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0d0d0d; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0d0d0d; }
+      #band { position: absolute; left: 0; top: 0; width: 1080px; height: 420px; background: #0d0d0d; }
+      #band-rule { position: absolute; left: 0; top: 416px; width: 1080px; height: 4px; background: #C9A646; z-index: 3; }
+      #stage { position: absolute; left: 0; top: 420px; width: 1080px; height: 1500px; overflow: hidden; z-index: 1; }
+      #cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+      #talk { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      .broll { position: absolute; left: 0; top: 0; width: 1080px; height: 1500px; object-fit: cover; z-index: 2; }
+      #graphics, #captions { z-index: 5; }
+      #endcard { z-index: 10; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1080"
-      data-height="1920"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45.65" data-width="1080" data-height="1920">
+      <div id="band"></div>
+      <div id="stage" data-layout-allow-overflow>
+        <div id="cam">
+          <video id="talk" class="clip" data-start="0" data-duration="43.7" data-track-index="1"
+            src="assets/talk.mp4" playsinline data-has-audio="true" data-volume="1"></video>
+        </div>
+
+      </div>
+      <div id="band-rule"></div>
+      <div id="graphics" data-composition-id="graphics" data-composition-src="compositions/graphics.html"
+        data-start="0" data-duration="43.65" data-track-index="6" data-track-kind="graphics"
+        data-width="1080" data-height="1920"></div>
+      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html"
+        data-start="0" data-duration="43.65" data-track-index="7" data-track-kind="captions"
+        data-width="1080" data-height="1920"></div>
+      <div id="endcard" data-composition-id="endcard" data-composition-src="compositions/endcard.html"
+        data-start="43.65" data-duration="2.0" data-track-index="8" data-track-kind="graphics"
+        data-width="1080" data-height="1920"></div>
+      <!-- music pending <audio id="music" class="clip" data-start="0" data-duration="45.65" data-track-index="9" data-volume="1"
+        data-automation='{"version": 1, "lanes": [{"target": "volume", "points": [{"t": 0, "v": 0.04}, {"t": 43.449999999999996, "v": 0.04}, {"t": 43.949999999999996, "v": 0.14}, {"t": 45.25, "v": 0.14}, {"t": 45.65, "v": 0.0}]}]}' src="assets/music/bed.mp3"></audio> -->
+    <audio id="sfx-whoosh-0" class="clip" data-start="11.03" data-duration="0.57" data-track-index="10" data-volume="0.22" src="assets/sfx/whoosh-short.mp3"></audio>
+    <audio id="sfx-whoosh-1" class="clip" data-start="19.54" data-duration="0.57" data-track-index="11" data-volume="0.22" src="assets/sfx/whoosh.mp3"></audio>
+    <audio id="sfx-whoosh-2" class="clip" data-start="22.32" data-duration="0.57" data-track-index="10" data-volume="0.22" src="assets/sfx/whoosh-short.mp3"></audio>
+    <audio id="sfx-whoosh-3" class="clip" data-start="42.24" data-duration="0.57" data-track-index="11" data-volume="0.22" src="assets/sfx/whoosh.mp3"></audio>
+    <audio id="sfx-pop-0" class="clip" data-start="17.30" data-duration="0.72" data-track-index="12" data-volume="0.3" src="assets/sfx/pop.mp3"></audio>
+    <audio id="sfx-pop-1" class="clip" data-start="18.62" data-duration="0.72" data-track-index="12" data-volume="0.3" src="assets/sfx/pop.mp3"></audio>
+    <audio id="sfx-pop-2" class="clip" data-start="22.44" data-duration="0.72" data-track-index="12" data-volume="0.3" src="assets/sfx/pop.mp3"></audio>
+    <audio id="sfx-pop-3" class="clip" data-start="43.92" data-duration="0.72" data-track-index="12" data-volume="0.3" src="assets/sfx/pop.mp3"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0);
+      tl.set("#cam", { x: -193.3, y: 0, scale: 1.3889 }, 0);
+      tl.set("#cam", { x: -339.2, y: -80.0, scale: 1.6667 }, 2.59);
+      tl.set("#cam", { x: -193.3, y: 0, scale: 1.3889 }, 5.17);
+      tl.set("#cam", { x: -351.7, y: -78.6, scale: 1.6667 }, 8.26);
+      tl.set("#cam", { x: -207.9, y: 0, scale: 1.3889 }, 9.93);
+      tl.set("#cam", { x: -356.7, y: -76.9, scale: 1.6667 }, 11.15);
+      tl.set("#cam", { x: -207.2, y: 0, scale: 1.3889 }, 12.14);
+      tl.set("#cam", { x: -354.2, y: -82.4, scale: 1.6667 }, 15.77);
+      tl.set("#cam", { x: -196.8, y: 0, scale: 1.3889 }, 18.6);
+      tl.set("#cam", { x: -351.7, y: -83.3, scale: 1.6667 }, 19.66);
+      tl.set("#cam", { x: -203.8, y: 0, scale: 1.3889 }, 21.98);
+      tl.set("#cam", { x: -439.6, y: 0, scale: 1.7778 }, 22.44);
+      tl.set("#cam", { x: -211.4, y: 0, scale: 1.3889 }, 24.95);
+      tl.set("#cam", { x: -373.3, y: -82.8, scale: 1.6667 }, 28.74);
+      tl.set("#cam", { x: -219.7, y: 0, scale: 1.3889 }, 32.66);
+      tl.set("#cam", { x: -418.2, y: 0, scale: 1.7778 }, 35.45);
+      tl.set("#cam", { x: -215.6, y: 0, scale: 1.3889 }, 37.3);
+      tl.set("#cam", { x: -371.7, y: -84.2, scale: 1.6667 }, 42.36);
+      tl.fromTo("#cam", { x: -215.6, y: 0, scale: 1.3889 }, { x: -245.8, y: -16.1, scale: 1.4445, duration: 5.06, ease: "none" }, 37.3);
       window.__timelines["main"] = tl;
-      tl.seek(0);
     </script>
   </body>
 </html>
