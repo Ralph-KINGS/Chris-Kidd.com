@@ -18,7 +18,7 @@ f=[]
 for i,(s,e) in enumerate(V): f.append(f'[0:v]trim=start={s}:end={e},setpts=PTS-STARTPTS[v{i}]')
 for i,(s,e) in enumerate(A): f.append(f'[0:a]atrim=start={s}:end={e},asetpts=PTS-STARTPTS,afade=t=in:d=0.006,afade=t=out:st={e-s-0.008:.4f}:d=0.008[a{i}]')
 f.append(''.join(f'[v{i}]' for i in range(len(V)))+f'concat=n={len(V)}:v=1:a=0,fps=30,tpad=stop_mode=clone:stop_duration=0.5[v]')
-f.append(''.join(f'[a{i}]' for i in range(len(A)))+f'concat=n={len(A)}:v=0:a=1,apad=pad_dur=0.5[a]')
+f.append(''.join(f'[a{i}]' for i in range(len(A)))+f'concat=n={len(A)}:v=0:a=1,apad=pad_dur=0.5,loudnorm=I=-16:TP=-1.5:LRA=7,aresample=48000[a]')
 open('work/cut.filter','w').write(';\n'.join(f))
 subprocess.run(['ffmpeg','-v','error','-y','-i','src/source.mp4','-filter_complex_script','work/cut.filter','-map','[v]','-map','[a]',
  '-c:v','libx264','-preset','medium','-crf','14','-g','15','-pix_fmt','yuv420p','-c:a','aac','-b:a','256k','-ar','48000','assets/talk.mp4'],check=True)

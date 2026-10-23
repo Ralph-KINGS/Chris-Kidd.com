@@ -224,8 +224,8 @@ for k, t in enumerate(POP):
     sfx.append(f'    <audio id="sfx-pop-{k}" class="clip" data-start="{t:.2f}" data-duration="{dur('assets/sfx/pop.mp3'):.2f}" data-track-index="12" data-volume="0.3" src="assets/sfx/pop.mp3"></audio>')
 
 music_auto = json.dumps({"version": 1, "lanes": [{"target": "volume", "points": [
-    {"t": 0, "v": 0.04}, {"t": END_START - 0.2, "v": 0.04}, {"t": END_START + 0.3, "v": 0.14},
-    {"t": TOTAL - 0.4, "v": 0.14}, {"t": TOTAL, "v": 0.0}]}]})
+    {"t": 0, "v": 0.0}, {"t": 0.4, "v": 0.26}, {"t": END_START - 0.25, "v": 0.26}, {"t": END_START + 0.25, "v": 0.6},
+    {"t": TOTAL - 0.5, "v": 0.6}, {"t": TOTAL, "v": 0.0}]}]})
 
 MUSIC_OPEN, MUSIC_CLOSE = ("", "") if os.path.exists("assets/music/bed.mp3") else ("<!-- music pending ", " -->")
 index = f"""<!doctype html>
