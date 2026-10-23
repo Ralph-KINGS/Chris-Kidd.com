@@ -1,0 +1,17 @@
+work/*
+!work/*.py
+!work/edl.json
+!work/words_out.json
+!work/aligned.json
+!work/shots.json
+!work/segs.json
+!work/faces.json
+renders/
+node_modules/
+.hyperframes/
+exports/.*
+exports/work-*
+exports/.*
+exports/work-*
+exports/.*
+exports/work-*
