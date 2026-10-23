@@ -1,0 +1,44 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #000; overflow: hidden; }
+    #q-bgwrap { position: absolute; left: -64px; top: 0; width: 1209px; height: 1920px; transform-origin: 62% 40%; }
+    #q-bg { position: absolute; left: 0; top: 0; width: 1209px; height: 1920px; }
+    #q-dim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.62) 40%, rgba(0,0,0,.82) 100%); }
+    #q-text {
+      position: absolute; left: 0; width: 1080px; top: 610px; padding: 0 96px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 80px; line-height: 1.16; color: #fff;
+    }
+    .qw { opacity: 0.42; }
+    .qw.gold { color: #C9A646; }
+    #q-mark { position: absolute; left: 0; width: 1080px; top: 400px; text-align: center; font-family: "Playfair Display", serif; font-size: 220px; line-height: 1; color: #C9A646; }
+    #q-by { position: absolute; left: 0; width: 1080px; top: 1330px; text-align: center; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 46px; letter-spacing: 0.12em; color: #fff; }
+    #q-by span { color: #C9A646; }
+  </style>
+  <div id="root" data-composition-id="quote" data-width="1080" data-height="1920">
+    <div id="q-bgwrap"><img id="q-bg" class="clip" data-start="0" data-duration="7.66" data-track-index="0" src="assets/einstein.jpg" alt="Albert Einstein" /></div>
+    <div id="q-dim"></div>
+    <div id="q-mark">“</div>
+    <div id="q-text"><span id="qw0" class="qw">“I&#x27;m</span> <span id="qw1" class="qw">neither</span> <span id="qw2" class="qw">especially</span> <span id="qw3" class="qw">clever</span> <span id="qw4" class="qw">nor</span> <span id="qw5" class="qw">especially</span> <span id="qw6" class="qw">gifted.</span> <span id="qw7" class="qw">I&#x27;m</span> <span id="qw8" class="qw">just</span> <span id="qw9" class="qw">very,</span> <span id="qw10" class="qw">very</span> <span id="qw11" class="qw gold">curious.”</span></div>
+    <div id="q-by"><span>—</span> ALBERT EINSTEIN</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#q-bgwrap", { scale: 1.0 }, { scale: 1.09, duration: 7.66, ease: "none" }, 0);
+    tl.set("#q-mark", { opacity: 1 }, 0);
+    tl.fromTo("#q-by", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 6.0);
+    tl.to("#qw0", { opacity: 1, duration: 0.12, ease: "power2.out" }, 0.828);
+    tl.to("#qw1", { opacity: 1, duration: 0.12, ease: "power2.out" }, 1.008);
+    tl.to("#qw2", { opacity: 1, duration: 0.12, ease: "power2.out" }, 1.389);
+    tl.to("#qw3", { opacity: 1, duration: 0.12, ease: "power2.out" }, 2.131);
+    tl.to("#qw4", { opacity: 1, duration: 0.12, ease: "power2.out" }, 2.584);
+    tl.to("#qw5", { opacity: 1, duration: 0.12, ease: "power2.out" }, 2.724);
+    tl.to("#qw6", { opacity: 1, duration: 0.12, ease: "power2.out" }, 3.446);
+    tl.to("#qw7", { opacity: 1, duration: 0.12, ease: "power2.out" }, 3.952);
+    tl.to("#qw8", { opacity: 1, duration: 0.12, ease: "power2.out" }, 4.132);
+    tl.to("#qw9", { opacity: 1, duration: 0.12, ease: "power2.out" }, 4.473);
+    tl.to("#qw10", { opacity: 1, duration: 0.12, ease: "power2.out" }, 5.034);
+    tl.to("#qw11", { opacity: 1, duration: 0.12, ease: "power2.out" }, 5.515);
+    tl.to(["#q-text", "#q-mark", "#q-by"], { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 7.46);
+    window.__timelines["quote"] = tl;
+  </script>
+</template>

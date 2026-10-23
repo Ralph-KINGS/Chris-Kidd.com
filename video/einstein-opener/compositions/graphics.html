@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Montserrat, sans-serif; }
+    .band { position: absolute; left: 0; top: 0; width: 1080px; height: 420px; }
+    #g-title .t {
+      position: absolute; left: 0; width: 1080px; top: 236px; text-align: center;
+      color: #fff; font-weight: 800; font-size: 76px; line-height: 1.1; letter-spacing: -0.01em;
+    }
+    #g-title .gold { color: #C9A646; }
+    #g-credit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #g-credit .lt {
+      position: absolute; left: 110px; top: 1030px; padding: 16px 28px 16px 24px;
+      background: rgba(13,13,13,.82); border-left: 8px solid #C9A646; border-radius: 6px;
+      color: #fff; font-weight: 700; font-size: 44px;
+    }
+    #g-credit .lt span { color: #C9A646; }
+    #g-kin { position: absolute; left: 0; top: 420px; width: 1080px; height: 1500px; background: #121212; }
+    #g-kin .small { position: absolute; left: 0; width: 1080px; text-align: center; color: #fff; font-weight: 700; font-size: 54px; }
+    #g-kin .big { position: absolute; left: 0; width: 1080px; text-align: center; color: #C9A646; font-weight: 900; font-size: 150px; letter-spacing: -0.02em; }
+    #g-kin .mid { position: absolute; left: 0; width: 1080px; text-align: center; color: #fff; font-weight: 800; font-size: 72px; line-height: 1.12; }
+    #g-kin .w { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="graphics" data-width="1080" data-height="1920">
+    <div id="g-title" class="clip band" data-start="7.66" data-duration="35.89" data-track-index="0">
+      <div id="g-title-in" class="t">Why <span class="gold">curiosity</span><br />beats clever</div>
+    </div>
+    <div id="g-kin" class="clip" data-start="13.85" data-duration="4.2" data-track-index="1">
+      <div id="g-k1" class="small" style="top: 420px;">is all about</div>
+      <div id="g-k2" class="big" style="top: 500px;">curiosity.</div>
+      <div id="g-k3" class="mid" style="top: 740px;"><span class="w">That</span> <span class="w">insatiable</span><br /><span class="w">appetite</span></div>
+    </div>
+    <div id="g-credit" class="clip" data-start="7.66" data-duration="3.2" data-track-index="3">
+      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FBP</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#g-title-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 7.68);
+    // kinetic card, timed to the words
+    tl.fromTo("#g-k1", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, 13.86);
+    tl.fromTo("#g-k2", { opacity: 0, scale: 1.25, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 14.47);
+    tl.fromTo("#g-k3 .w:nth-of-type(1)", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, 15.41);
+    tl.fromTo("#g-k3 .w:nth-of-type(2)", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, 15.63);
+    tl.fromTo("#g-k3 .w:nth-of-type(3)", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, 16.63);
+    // credit lower third, first 3 s after the quote
+    tl.fromTo("#g-credit-lt", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 7.86);
+    tl.to("#g-credit-lt", { opacity: 0, x: -20, duration: 0.22, ease: "power2.in" }, 10.61);
+    window.__timelines["graphics"] = tl;
+  </script>
+</template>
