@@ -141,7 +141,7 @@ graphics = f"""<template>
       <div id="g-punch-in" class="t">They <span class="gold">WILL</span> correct you<br />if you're wrong.</div>
     </div>
     <div id="g-credit" class="clip" data-start="0" data-duration="3.0" data-track-index="3">
-      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FCA</span></div>
+      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FBP</span></div>
     </div>
   </div>
   <script>

@@ -9,3 +9,5 @@ work/*
 renders/
 node_modules/
 .hyperframes/
+exports/.*
+exports/work-*

@@ -137,7 +137,7 @@ graphics = f"""<template>
       <div id="g-b3" class="bub gold">To the beach?</div>
     </div>
     <div id="g-credit" class="clip" data-start="0" data-duration="3.0" data-track-index="3">
-      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FCA</span></div>
+      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FBP</span></div>
     </div>
   </div>
   <script>
