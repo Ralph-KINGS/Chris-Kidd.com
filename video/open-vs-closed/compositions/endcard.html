@@ -1,0 +1,26 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0d0d0d; font-family: Montserrat, sans-serif; }
+    #e-wrap { position: absolute; left: 0; width: 1080px; top: 840px; text-align: center; color: #fff; }
+    #e-kicker { font-weight: 700; font-size: 64px; letter-spacing: 0.02em; }
+    #e-line { margin-top: 0; font-weight: 900; font-size: 88px; line-height: 1.08; padding: 0 90px; }
+    #e-line .gold { color: #C9A646; }
+    #e-line .grey { color: #8E8E93; }
+    #e-line .w { white-space: nowrap; }
+    #e-line .grey { color: #8E8E93; }
+    #e-line .w { white-space: nowrap; }
+    #e-rule { width: 120px; height: 8px; background: #C9A646; margin: 46px auto 0; border-radius: 4px; }
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1920">
+    <div id="e-wrap">
+      <div id="e-line"><span class="w">Swap</span> <span class="w grey">“Did you…”</span><br /><span class="w">for</span> <span class="w gold">“How was…”</span></div>
+      <div id="e-rule"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#e-line .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.05, ease: "power4.out" }, 0.1);
+    tl.fromTo("#e-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "expo.out" }, 0.7);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>

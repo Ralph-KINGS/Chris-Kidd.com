@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Montserrat, sans-serif; }
+    .band { position: absolute; left: 0; top: 0; width: 1080px; height: 420px; }
+    #g-title .t {
+      position: absolute; left: 0; width: 1080px; top: 222px; text-align: center;
+      color: #fff; font-weight: 800; font-size: 74px; line-height: 1.1; letter-spacing: -0.01em;
+    }
+    #g-title .gold { color: #C9A646; }
+    .split { position: absolute; left: 54px; width: 972px; top: 200px; }
+    .row { display: flex; align-items: center; gap: 9px; height: 92px; white-space: nowrap; }
+    .row + .row { margin-top: 14px; }
+    .ic { width: 46px; height: 46px; border-radius: 23px; display: flex; align-items: center; justify-content: center; flex: none; }
+    .ic.grey { background: #636366; }
+    .ic.gold { background: #C9A646; }
+    .pill { padding: 14px 18px; border-radius: 20px; font-weight: 700; font-size: 28px; }
+    .qg { background: #3A3A3C; color: #D1D1D6; }
+    .ag { background: #2C2C2E; color: #8E8E93; }
+    .qy { background: #fff; color: #0d0d0d; }
+    .ay { background: #C9A646; color: #0d0d0d; }
+    .ar { color: #8E8E93; font-weight: 800; font-size: 36px; }
+    .r2 .ar { color: #C9A646; }
+    .dim { opacity: 0.55; }
+    #g-deep .small { position: absolute; left: 0; width: 1080px; top: 198px; text-align: center; color: #fff; font-weight: 700; font-size: 52px; }
+    #g-deep .big { position: absolute; left: 0; width: 1080px; top: 262px; text-align: center; color: #C9A646; font-weight: 900; font-size: 112px; letter-spacing: -0.01em; }
+    .col { position: absolute; top: 188px; width: 470px; }
+    #g-oc-open { left: 50px; }
+    #g-oc-closed { left: 560px; }
+    .lab { display: inline-block; padding: 6px 18px; border-radius: 10px; font-weight: 800; font-size: 32px; letter-spacing: 0.08em; }
+    .lab.gold { background: #C9A646; color: #0d0d0d; }
+    .lab.grey { background: #636366; color: #fff; }
+    .words { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+    .wd { padding: 8px 16px; border-radius: 12px; font-weight: 800; font-size: 36px; opacity: 0; }
+    #g-oc-open .wd { background: #fff; color: #0d0d0d; }
+    #g-oc-closed .wd { background: #3A3A3C; color: #D1D1D6; }
+    #g-credit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #g-credit .lt {
+      position: absolute; left: 110px; top: 1030px; padding: 16px 28px 16px 24px;
+      background: rgba(13,13,13,.82); border-left: 8px solid #C9A646; border-radius: 6px;
+      color: #fff; font-weight: 700; font-size: 44px;
+    }
+    #g-credit .lt span { color: #C9A646; }
+  </style>
+  <div id="root" data-composition-id="graphics" data-width="1080" data-height="1920">
+    <div id="g-title" class="clip band" data-start="0" data-duration="36.1" data-track-index="0">
+      <div id="g-title-in" class="t">One word <span class="gold">kills</span><br />your conversations</div>
+    </div>
+    <div id="g-s1" class="clip band" data-start="2.72" data-duration="2.58" data-track-index="1">
+      <div class="split"><div class="row r1"><span class="ic grey"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="pill qg">“Did you have a good weekend?”</span><span class="ar">→</span><span class="pill ag RYES">“Yes.”</span></div></div>
+    </div>
+    <div id="g-deep" class="clip band" data-start="14.45" data-duration="3.75" data-track-index="2">
+      <div id="g-deep-a" class="small">You want people to</div>
+      <div id="g-deep-b" class="big">GO DEEPER</div>
+    </div>
+    <div id="g-oc" class="clip band" data-start="19.70" data-duration="5.45" data-track-index="2">
+      <div id="g-oc-open" class="col"><span class="lab gold">OPEN</span><div class="words">
+        <span id="o1" class="wd">what</span><span id="o2" class="wd">when</span><span id="o3" class="wd">where</span><span id="o4" class="wd">who</span><span id="o5" class="wd">how</span></div></div>
+      <div id="g-oc-closed" class="col"><span class="lab grey">CLOSED</span><div class="words">
+        <span id="c1" class="wd">did</span><span id="c2" class="wd">can</span><span id="c3" class="wd">have</span><span id="c4" class="wd">will</span><span id="c5" class="wd">do</span><span id="c6" class="wd">could</span></div></div>
+    </div>
+    <div id="g-s2" class="clip band" data-start="26.95" data-duration="2.35" data-track-index="1">
+      <div class="split"><div class="row r1"><span class="ic grey"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="pill qg">“Did you have a good weekend?”</span><span class="ar">→</span><span class="pill ag RYES">“Yes.”</span></div> <div class="row r2"><span class="ic gold"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0d0d0d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pill qy RQ">“How was your weekend?”</span><span class="ar">→</span><span class="pill ay RA" style="opacity:0">“What did you get up to?”</span></div></div>
+    </div>
+    <div id="g-s3" class="clip band" data-start="34.05" data-duration="2.05" data-track-index="1">
+      <div class="split"><div class="row r1"><span class="ic grey"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg></span><span class="pill qg">“Did you have a good weekend?”</span><span class="ar">→</span><span class="pill ag RYES">“Yes.”</span></div> <div class="row r2"><span class="ic gold"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#0d0d0d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pill qy RQ">“How was your weekend?”</span><span class="ar">→</span><span class="pill ay RA" style="opacity:0">“What did you get up to?”</span></div></div>
+    </div>
+    <div id="g-credit" class="clip" data-start="0" data-duration="3.0" data-track-index="3">
+      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FBP</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const out_ = (t) => tl.to("#g-title-in", { opacity: 0, filter: "blur(6px)", duration: 0.16, ease: "power2.in" }, t);
+    const in_ = (t) => tl.to("#g-title-in", { opacity: 1, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, t);
+    tl.set("#g-title-in", { opacity: 1, filter: "blur(0px)" }, 0);
+    out_(2.55); in_(5.36); out_(14.28); in_(18.26); out_(19.53); in_(25.2); out_(26.78); in_(29.34); out_(33.88);
+    const pop = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(1.9)" }, t);
+    const fade = (sel, t, o) => tl.fromTo(sel, { opacity: 0 }, { opacity: o, duration: 0.18, ease: "power2.out" }, t);
+    // split card, step 1: the dead end
+    pop("#g-s1 .r1 .ic", 2.72); fade("#g-s1 .r1 .qg", 2.74, 1); fade("#g-s1 .r1 .ar", 2.78, 1); pop("#g-s1 .RYES", 2.83);
+    tl.to("#g-s1 .split", { opacity: 0, duration: 0.15, ease: "power2.in" }, 5.12);
+    // go deeper
+    tl.fromTo("#g-deep-a", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, 14.47);
+    tl.fromTo("#g-deep-b", { opacity: 0, scale: 1.2, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 16.40);
+    tl.to(["#g-deep-a", "#g-deep-b"], { opacity: 0, duration: 0.15, ease: "power2.in" }, 18.02);
+    // open / closed columns, words pop one at a time
+    tl.fromTo("#g-oc .lab", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out", stagger: 0.08 }, 19.72);
+    [["#o1",21.46],["#o2",21.79],["#o3",22.17],["#o4",22.62],["#o5",23.57],["#c1",23.95],["#c2",24.07],["#c3",24.19],["#c4",24.31],["#c5",24.43],["#c6",24.55]].forEach(([s_, t]) => pop(s_, t));
+    tl.to("#g-oc .col", { opacity: 0, duration: 0.15, ease: "power2.in" }, 24.98);
+    // split card, step 2: the open version
+    fade("#g-s2 .r1", 26.95, 0.5); pop("#g-s2 .r2 .ic", 27.02); pop("#g-s2 .RQ", 27.04); fade("#g-s2 .r2 .ar", 27.3, 1);
+    tl.to("#g-s2 .split", { opacity: 0, duration: 0.15, ease: "power2.in" }, 29.12);
+    fade("#g-s3 .r1", 34.05, 0.5); fade("#g-s3 .r2 .ic", 34.05, 1); fade("#g-s3 .RQ", 34.05, 1); fade("#g-s3 .r2 .ar", 34.05, 1); pop("#g-s3 .RA", 34.19);
+    // credit lower third
+    tl.fromTo("#g-credit-lt", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 0.25);
+    tl.to("#g-credit-lt", { opacity: 0, x: -20, duration: 0.22, ease: "power2.in" }, 2.72);
+    window.__timelines["graphics"] = tl;
+  </script>
+</template>
