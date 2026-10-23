@@ -1,0 +1,74 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Montserrat, sans-serif; }
+    .band { position: absolute; left: 0; top: 0; width: 1080px; height: 420px; }
+    #g-title .t {
+      position: absolute; left: 0; width: 1080px; top: 196px; text-align: center;
+      color: #fff; font-weight: 800; font-size: 68px; line-height: 1.12; letter-spacing: -0.01em;
+    }
+    #g-title .gold { color: #C9A646; }
+    .cmp {
+      position: absolute; top: 184px; width: 450px; height: 214px; padding: 22px 24px;
+      background: #fff; border-radius: 26px; box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    #g-cmp-a { left: 60px; }
+    #g-cmp-b { left: 570px; }
+    .lab {
+      display: inline-block; padding: 6px 16px; border-radius: 10px;
+      font-weight: 800; font-size: 30px; letter-spacing: 0.06em;
+    }
+    .lab.grey { background: #636366; color: #fff; }
+    .lab.gold { background: #C9A646; color: #0d0d0d; }
+    .q { margin-top: 16px; color: #0d0d0d; font-weight: 800; font-size: 42px; line-height: 1.15; }
+    #g-punch .t {
+      position: absolute; left: 0; width: 1080px; top: 188px; text-align: center;
+      color: #fff; font-weight: 900; font-size: 76px; line-height: 1.04; letter-spacing: -0.015em;
+    }
+    #g-punch .gold { color: #C9A646; }
+    #g-credit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #g-credit .lt {
+      position: absolute; left: 110px; top: 1030px; padding: 16px 28px 16px 24px;
+      background: rgba(13,13,13,.82); border-left: 8px solid #C9A646; border-radius: 6px;
+      color: #fff; font-weight: 700; font-size: 44px;
+    }
+    #g-credit .lt span { color: #C9A646; }
+  </style>
+  <div id="root" data-composition-id="graphics" data-width="1080" data-height="1920">
+    <div id="g-title" class="clip band" data-start="0" data-duration="50.75" data-track-index="0">
+      <div id="g-title-in" class="t">Stop saying<br /><span class="gold">“So what I'm hearing is…”</span></div>
+    </div>
+    <div id="g-cmp" class="clip band" data-start="13.0" data-duration="9.5" data-track-index="1">
+      <div id="g-cmp-a" class="cmp"><span class="lab grey">BEGINNER</span>
+        <div class="q">“So what I'm<br />hearing is…”</div></div>
+      <div id="g-cmp-b" class="cmp"><span class="lab gold">ADVANCED ↑</span>
+        <div class="q">“So what you<br />said was…”</div></div>
+    </div>
+    <div id="g-punch" class="clip band" data-start="45.6" data-duration="4.1" data-track-index="2">
+      <div id="g-punch-in" class="t">They <span class="gold">WILL</span> correct you<br />if you're wrong.</div>
+    </div>
+    <div id="g-credit" class="clip" data-start="0" data-duration="3.0" data-track-index="3">
+      <div id="g-credit-lt" class="lt">Andrew Jepson, <span>FCA</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // title: on screen at frame 0 (thumbnail); steps aside for the comparison card and punchline
+    tl.set("#g-title-in", { opacity: 1, filter: "blur(0px)" }, 0);
+    tl.to("#g-title-in", { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, 12.92);
+    tl.to("#g-title-in", { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 22.55);
+    tl.to("#g-title-in", { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, 45.45);
+    tl.to("#g-title-in", { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 49.8);
+    // comparison card: step 1 beginner, step 2 advanced
+    tl.fromTo("#g-cmp-a", { opacity: 0, scale: 0.88, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "expo.out" }, 13.12);
+    tl.fromTo("#g-cmp-b", { opacity: 0, scale: 0.88, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "expo.out" }, 17.43);
+    tl.to("#g-cmp-a", { opacity: 0.55, duration: 0.3, ease: "power2.out" }, 17.55);
+    tl.to(["#g-cmp-a", "#g-cmp-b"], { opacity: 0, scale: 0.96, duration: 0.2, ease: "power2.in" }, 22.28);
+    // punchline overlay
+    tl.fromTo("#g-punch-in", { opacity: 0, scale: 1.18, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "expo.out" }, 45.72);
+    tl.to("#g-punch-in", { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, 49.45);
+    // credit lower third
+    tl.fromTo("#g-credit-lt", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 0.25);
+    tl.to("#g-credit-lt", { opacity: 0, x: -20, duration: 0.22, ease: "power2.in" }, 2.72);
+    window.__timelines["graphics"] = tl;
+  </script>
+</template>
