@@ -10,3 +10,5 @@ npx hyperframes@0.8.207 render -o master.mp4
 ```
 
 `thumbnail/thumb.html` is the email thumbnail layout (it expects `frame.png`, `logo.png` and the Montserrat woff2 files next to it).
+
+Background music (`assets/bgm/bed.mp3`) is an original track made with `scripts/compose_bed.py`. There is no third-party licence. It plays at about 22 dB below the voice and rises slightly over the end card.
