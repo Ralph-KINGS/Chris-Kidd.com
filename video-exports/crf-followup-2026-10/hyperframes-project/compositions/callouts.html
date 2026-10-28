@@ -1,0 +1,120 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      font-family: "Montserrat", sans-serif;
+    }
+    .co {
+      position: absolute;
+      left: 84px;
+      top: 300px;
+    }
+    .co-card {
+      position: relative;
+      display: inline-block;
+      padding: 30px 48px 34px 64px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 16px;
+      max-width: 912px;
+    }
+    .co-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 14px;
+      border-radius: 16px 0 0 16px;
+      background: var(--gold);
+      transform-origin: 50% 0%;
+    }
+    .co-kicker {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .co-title {
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+  </style>
+  <div
+    id="root"
+    data-composition-id="callouts"
+    data-width="1080"
+    data-height="1920"
+    data-composition-variables='[
+      {"id":"gold","type":"color","label":"Brand gold","default":"#D4B23D"},
+      {"id":"cream","type":"color","label":"Brand cream","default":"#FFFAEA"},
+      {"id":"c1-kicker","type":"string","label":"Callout 1 kicker","default":"Just installed"},
+      {"id":"c1-title","type":"string","label":"Callout 1 title","default":"Roof-to-fence blinds"},
+      {"id":"c2-kicker","type":"string","label":"Callout 2 kicker","default":"Out here"},
+      {"id":"c2-title","type":"string","label":"Callout 2 title","default":"Full sun"},
+      {"id":"c3-kicker","type":"string","label":"Callout 3 kicker","default":"Under here"},
+      {"id":"c3-title","type":"string","label":"Callout 3 title","default":"Perfect shade"},
+      {"id":"c4-kicker","type":"string","label":"Callout 4 kicker","default":"Blocks out the"},
+      {"id":"c4-title","type":"string","label":"Callout 4 title","default":"Heat &amp; light"}
+    ]'
+    style="--gold: #d4b23d; --cream: #fffaea"
+  >
+    <!-- Local times: scene starts at 8.0 s in the film -->
+    <div id="co1" class="co clip" data-start="0.2" data-duration="2.0" data-track-index="1">
+      <div id="co1-card" class="co-card">
+        <div id="co1-bar" class="co-bar"></div>
+        <div id="co1-kicker" class="co-kicker" data-var-text="c1-kicker">Just installed</div>
+        <div id="co1-title" class="co-title" data-var-text="c1-title">Roof-to-fence blinds</div>
+      </div>
+    </div>
+    <div id="co2" class="co clip" data-start="2.3" data-duration="1.75" data-track-index="2">
+      <div id="co2-card" class="co-card">
+        <div id="co2-bar" class="co-bar"></div>
+        <div id="co2-kicker" class="co-kicker" data-var-text="c2-kicker">Out here</div>
+        <div id="co2-title" class="co-title" data-var-text="c2-title">Full sun</div>
+      </div>
+    </div>
+    <div id="co3" class="co clip" data-start="4.05" data-duration="1.85" data-track-index="3">
+      <div id="co3-card" class="co-card">
+        <div id="co3-bar" class="co-bar"></div>
+        <div id="co3-kicker" class="co-kicker" data-var-text="c3-kicker">Under here</div>
+        <div id="co3-title" class="co-title" data-var-text="c3-title">Perfect shade</div>
+      </div>
+    </div>
+    <div id="co4" class="co clip" data-start="6.7" data-duration="2.7" data-track-index="4">
+      <div id="co4-card" class="co-card">
+        <div id="co4-bar" class="co-bar"></div>
+        <div id="co4-kicker" class="co-kicker" data-var-text="c4-kicker">Blocks out the</div>
+        <div id="co4-title" class="co-title" data-var-text="c4-title">Heat &amp; light</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // [id, start, duration, animate out?]
+    const cards = [
+      ["co1", 0.2, 2.0, true],
+      ["co2", 2.3, 1.75, false],
+      ["co3", 4.05, 1.85, true],
+      ["co4", 6.7, 2.7, true],
+    ];
+    cards.forEach(([id, start, dur, out]) => {
+      tl.fromTo(`#${id}-card`, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, start);
+      tl.fromTo(`#${id}-bar`, { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power3.out" }, start + 0.1);
+      tl.fromTo(
+        `#${id}-kicker, #${id}-title`,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.08 },
+        start + 0.15,
+      );
+      if (out) {
+        tl.to(`#${id}-card`, { opacity: 0, x: 40, duration: 0.3, ease: "power2.in" }, start + dur - 0.35);
+      }
+    });
+    window.__timelines["callouts"] = tl;
+  </script>
+</template>
