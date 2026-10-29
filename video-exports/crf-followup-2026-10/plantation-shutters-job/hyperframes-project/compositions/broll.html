@@ -1,0 +1,58 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    .br {
+      position: absolute;
+      left: 0;
+      top: 140px;
+      width: 1080px;
+      height: 1456px;
+      overflow: hidden;
+    }
+    .br img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1456px;
+      object-fit: cover;
+    }
+  </style>
+  <div id="root" data-composition-id="broll" data-width="1080" data-height="1920">
+    <!-- Cutaways of this job's shutters over the talking-head sections. Times are film times. -->
+    <div id="br1" class="br clip" data-start="6.6" data-duration="2.6" data-track-index="1" data-layout-allow-overflow>
+      <img id="br1-img" src="assets/broll/kids-room.jpg" alt="Plantation shutters in the kids' room" />
+    </div>
+    <div id="br2" class="br clip" data-start="14.5" data-duration="2.9" data-track-index="2" data-layout-allow-overflow>
+      <img id="br2-img" src="assets/broll/bedroom-view.jpg" alt="Plantation shutters framing the view" />
+    </div>
+    <div id="br3" class="br clip" data-start="17.4" data-duration="2.7" data-track-index="3" data-layout-allow-overflow>
+      <img id="br3-img" src="assets/broll/double-doors.jpg" alt="Plantation shutters on double doors" />
+    </div>
+    <div id="br4" class="br clip" data-start="26.0" data-duration="2.6" data-track-index="4" data-layout-allow-overflow>
+      <img id="br4-img" src="assets/broll/bedroom-detail.jpg" alt="Plantation shutters close-up" />
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Slow push-ins / drifts so the stills read as footage
+    tl.fromTo("#br1-img", { scale: 1.04, xPercent: 0 }, { scale: 1.16, xPercent: -2, duration: 2.6, ease: "none" }, 6.6);
+    tl.fromTo(
+      "#br2-img",
+      { scale: 1.35, xPercent: 6, yPercent: 2, transformOrigin: "35% 45%" },
+      { scale: 1.6, xPercent: 8, yPercent: 2, duration: 2.9, ease: "none" },
+      14.5,
+    );
+    tl.fromTo("#br3-img", { scale: 1.18, xPercent: 3 }, { scale: 1.06, xPercent: -2, duration: 2.7, ease: "none" }, 17.4);
+    tl.fromTo(
+      "#br4-img",
+      { scale: 1.5, xPercent: -6, yPercent: 6, transformOrigin: "70% 35%" },
+      { scale: 1.35, xPercent: -10, yPercent: 6, duration: 2.6, ease: "none" },
+      26.0,
+    );
+    window.__timelines["broll"] = tl;
+  </script>
+</template>

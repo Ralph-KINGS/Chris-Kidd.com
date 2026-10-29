@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:M;font-weight:700;src:url(700-normal-110ce71572a4.woff2)}
+@font-face{font-family:M;font-weight:700;src:url(700-normal-79c7293a58d5.woff2)}
+@font-face{font-family:M;font-weight:500;src:url(500-normal-110ce71572a4.woff2)}
+@font-face{font-family:M;font-weight:500;src:url(500-normal-79c7293a58d5.woff2)}
+*{margin:0;box-sizing:border-box}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;background:#000;font-family:M,sans-serif}
+#f{position:absolute;left:0;top:-120px;width:1080px;height:1456px;object-fit:cover}
+#shade{position:absolute;left:0;right:0;top:820px;height:180px;background:linear-gradient(to bottom,rgba(0,0,0,0),#000)}
+#play{position:absolute;left:50%;top:400px;width:190px;height:190px;margin-left:-95px;border-radius:50%;background:rgba(0,0,0,.6);border:6px solid #D4B23D;display:flex;align-items:center;justify-content:center}
+#play:after{content:"";margin-left:14px;border-style:solid;border-width:44px 0 44px 72px;border-color:transparent transparent transparent #FFFAEA}
+#txt{position:absolute;left:0;right:0;top:1000px;height:200px;background:#000;text-align:center;padding-top:22px}
+#k{color:#D4B23D;font-weight:700;font-size:34px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+#t{color:#FFFAEA;font-weight:700;font-size:70px;line-height:1.1}
+#bar{position:absolute;left:0;right:0;bottom:0;height:150px;background:#000;display:flex;align-items:center;justify-content:center;border-top:4px solid #D4B23D}
+#bar img{height:96px}
+</style></head><body>
+<img id="f" src="frame.png"><div id="shade"></div><div id="play"></div>
+<div id="txt"><div id="k">Just finished</div><div id="t">Plantation shutters</div></div>
+<div id="bar"><img src="logo.png"></div>
+</body></html>

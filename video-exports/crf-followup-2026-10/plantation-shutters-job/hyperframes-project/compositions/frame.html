@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Montserrat", sans-serif;
+    }
+    #fr-top {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #fr-logo {
+      height: 92px;
+      width: auto;
+    }
+    .fr-rule {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--gold);
+    }
+    #fr-rule-top {
+      top: 135px;
+      transform-origin: 0% 50%;
+    }
+    #fr-rule-bot {
+      top: 1596px;
+      transform-origin: 100% 50%;
+    }
+    .fr-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1601px;
+      height: 319px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .fr-kicker {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .fr-title {
+      font-size: 84px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+  </style>
+  <div
+    id="root"
+    data-composition-id="frame"
+    data-width="1080"
+    data-height="1920"
+    data-composition-variables='[
+      {"id": "gold", "type": "color", "label": "Brand gold", "default": "#D4B23D"},
+      {"id": "cream", "type": "color", "label": "Brand cream", "default": "#FFFAEA"},
+      {"id": "l1-kicker", "type": "string", "label": "Line 1 kicker", "default": "G&#39;day from"},
+      {"id": "l1-title", "type": "string", "label": "Line 1 title", "default": "Chris at Kings"},
+      {"id": "l2-kicker", "type": "string", "label": "Line 2 kicker", "default": "Just finished"},
+      {"id": "l2-title", "type": "string", "label": "Line 2 title", "default": "Plantation shutters"},
+      {"id": "l3-kicker", "type": "string", "label": "Line 3 kicker", "default": "Here&#39;s one of them"},
+      {"id": "l3-title", "type": "string", "label": "Line 3 title", "default": "Absolutely stunning"},
+      {"id": "l4-kicker", "type": "string", "label": "Line 4 kicker", "default": "Sweat, stairs and all"},
+      {"id": "l4-title", "type": "string", "label": "Line 4 title", "default": "Worth it"},
+      {"id": "l5-kicker", "type": "string", "label": "Line 5 kicker", "default": "Tilt the louvres"},
+      {"id": "l5-title", "type": "string", "label": "Line 5 title", "default": "Control the light"},
+      {"id": "l6-kicker", "type": "string", "label": "Line 6 kicker", "default": "Have a look at that"},
+      {"id": "l6-title", "type": "string", "label": "Line 6 title", "default": "Unbelievable"},
+      {"id": "l7-kicker", "type": "string", "label": "Line 7 kicker", "default": "Really does"},
+      {"id": "l7-title", "type": "string", "label": "Line 7 title", "default": "Finish off the room"},
+      {"id": "l8-kicker", "type": "string", "label": "Line 8 kicker", "default": "Nice and"},
+      {"id": "l8-title", "type": "string", "label": "Line 8 title", "default": "Luxe"}
+    ]'
+    style="--gold: #d4b23d; --cream: #fffaea"
+  >
+    <div id="fr-top"><img id="fr-logo" src="assets/logo.png" alt="Kings Roller Shutters WA" /></div>
+    <div id="fr-rule-top" class="fr-rule"></div>
+    <div id="fr-rule-bot" class="fr-rule"></div>
+
+    <div id="fr-l1" class="fr-line clip" data-start="1.0" data-duration="4.4" data-track-index="1">
+      <div id="fr-l1-k" class="fr-kicker" data-var-text="l1-kicker">G&#39;day from</div>
+      <div id="fr-l1-t" class="fr-title" data-var-text="l1-title">Chris at Kings</div>
+    </div>
+    <div id="fr-l2" class="fr-line clip" data-start="5.5" data-duration="3.6" data-track-index="2">
+      <div id="fr-l2-k" class="fr-kicker" data-var-text="l2-kicker">Just finished</div>
+      <div id="fr-l2-t" class="fr-title" data-var-text="l2-title">Plantation shutters</div>
+    </div>
+    <div id="fr-l3" class="fr-line clip" data-start="11.0" data-duration="3.4" data-track-index="3">
+      <div id="fr-l3-k" class="fr-kicker" data-var-text="l3-kicker">Here&#39;s one of them</div>
+      <div id="fr-l3-t" class="fr-title" data-var-text="l3-title">Absolutely stunning</div>
+    </div>
+    <div id="fr-l4" class="fr-line clip" data-start="14.7" data-duration="5.3" data-track-index="4">
+      <div id="fr-l4-k" class="fr-kicker" data-var-text="l4-kicker">Sweat, stairs and all</div>
+      <div id="fr-l4-t" class="fr-title" data-var-text="l4-title">Worth it</div>
+    </div>
+    <div id="fr-l5" class="fr-line clip" data-start="20.2" data-duration="4.6" data-track-index="5">
+      <div id="fr-l5-k" class="fr-kicker" data-var-text="l5-kicker">Tilt the louvres</div>
+      <div id="fr-l5-t" class="fr-title" data-var-text="l5-title">Control the light</div>
+    </div>
+    <div id="fr-l6" class="fr-line clip" data-start="25.0" data-duration="3.7" data-track-index="6">
+      <div id="fr-l6-k" class="fr-kicker" data-var-text="l6-kicker">Have a look at that</div>
+      <div id="fr-l6-t" class="fr-title" data-var-text="l6-title">Unbelievable</div>
+    </div>
+    <div id="fr-l7" class="fr-line clip" data-start="29.0" data-duration="2.7" data-track-index="7">
+      <div id="fr-l7-k" class="fr-kicker" data-var-text="l7-kicker">Really does</div>
+      <div id="fr-l7-t" class="fr-title" data-var-text="l7-title">Finish off the room</div>
+    </div>
+    <div id="fr-l8" class="fr-line clip" data-start="31.75" data-duration="1.65" data-track-index="8">
+      <div id="fr-l8-k" class="fr-kicker" data-var-text="l8-kicker">Nice and</div>
+      <div id="fr-l8-t" class="fr-title" data-var-text="l8-title">Luxe</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#fr-logo", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0);
+    tl.fromTo("#fr-rule-top", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.fromTo("#fr-rule-bot", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.2);
+
+    // [id, start, duration]; the last line stays until the end card covers it
+    const lines = [
+      ["fr-l1", 1.0, 4.4],
+      ["fr-l2", 5.5, 3.6],
+      ["fr-l3", 11.0, 3.4],
+      ["fr-l4", 14.7, 5.3],
+      ["fr-l5", 20.2, 4.6],
+      ["fr-l6", 25.0, 3.7],
+      ["fr-l7", 29.0, 2.7],
+      ["fr-l8", 31.75, 1.65],
+    ];
+    lines.forEach(([id, start, dur], i) => {
+      tl.fromTo(`#${id}-k`, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, start);
+      tl.fromTo(
+        `#${id}-t`,
+        { opacity: 0, y: 40, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" },
+        start + 0.08,
+      );
+      if (i < lines.length - 1) {
+        tl.to([`#${id}-k`, `#${id}-t`], { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, start + dur - 0.22);
+      }
+    });
+
+    window.__timelines["frame"] = tl;
+  </script>
+</template>
